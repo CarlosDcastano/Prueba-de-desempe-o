@@ -45,8 +45,8 @@ def registrar_venta(inventario_prod, ventas, cliente, producto, cantidad, fecha=
                         "totalNeto": totalNeto
                 }
                 ventas.append(venta)
-                restante = p["cantidadStock"] - cantidad
-                productos.actualizar_productos(inventario_prod, producto, newtitle= p["titulo"], newAutor = p["autor"], newCategoria = p["categoria"], newPrecio = p["precio"],newCantidadStock=restante)
+                
+                p["cantidaStock"] -= cantidad
                 print("Sale successfully completed")
                 return venta
             else:

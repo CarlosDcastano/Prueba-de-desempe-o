@@ -45,7 +45,7 @@ def main():
         
         
         elif opcion == "3":
-            titulo = input("Enter the name of the book you wish to consult: ")
+            titulo = input("Enter the name of the book you wish to consult: ").upper()
             resultado = consultar_producto_por_titulo(inventario_prod, titulo)
             print(resultado)
         
@@ -96,8 +96,17 @@ def main():
             print(mostrar)
 
         elif opcion == "8":
-            print(top_3)
-            ventas_por_autor(ventas, inventario_prod)
+            print("\n--- SALES REPORT ---")
+
+            top3 = top_3_libros_mas_vendidos(ventas)
+            print("Top 3 best-selling books:", top3)
+
+            ventas_autor = ventas_por_autor(ventas, inventario_prod)
+            print("Sales by author:", ventas_autor)
+
+            bruto, neto = total_ventas_bruto_y_neto(ventas)
+            print("Total Gross Sales:", bruto)
+            print("Total Net Sales:", neto)
 
         elif opcion == "9":
             print("Bye")
